@@ -14,8 +14,11 @@ const DynamicCropper = ({
   const cropperRef = useRef(null);
 
   const onCrop = () => {
+    // this function will trigger when user clicks on submit
     const imageElement = cropperRef?.current;
     const cropper = imageElement?.cropper;
+
+    // it will conver cropped image into base64
     setCroppedSrc(cropper.getCroppedCanvas().toDataURL());
   };
 
@@ -27,7 +30,9 @@ const DynamicCropper = ({
     <>
       <div className={styles.cropperBtnStrip}>
         {/* action buttons for submit/cancel/rotate right/rotate left */}
+
         <div>
+          {/* Button responsible for 90 degree right rotation */}
           <button
             onClick={() => {
               const imageElement = cropperRef?.current;
@@ -38,27 +43,35 @@ const DynamicCropper = ({
           >
             <FiRotateCw />
           </button>
+
+          {/* Button responsible for 90 degree left rotation */}
           <button
             onClick={() => {
               const imageElement = cropperRef?.current;
               const cropper = imageElement?.cropper;
               cropper.rotate(-90);
             }}
-            className={styles.rotateBtnReverse}
+            className={styles.rotateBtn}
           >
             <FiRotateCcw />
           </button>
         </div>
+
         <div>
+          {/* Button responsible for closing without crop */}
           <button onClick={onCancel} className={styles.cropperBtn}>
             Cancel
           </button>
+
+          {/* Button responsible for cropping the image */}
           <button size="small" onClick={onCrop} className={styles.cropperBtn}>
             Submit
           </button>
         </div>
       </div>
+
       <div className={styles.cropperOverlay}>
+        {/* react-cropper component */}
         <Cropper
           src={src}
           style={{

@@ -1,5 +1,8 @@
 import "./App.css";
 import DynamicImage from "./components/DynamicImagePicker";
+
+// IMPORTANT: import cropperjs css
+// react-cropper won't work until you import it's css
 import "cropperjs/dist/cropper.css";
 
 const App = () => {

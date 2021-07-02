@@ -43,15 +43,3 @@
   font-weight: 600;
 }
 
-.rotateBtnReverse {
-  z-index: 100;
-  margin: 10px;
-  align-self: flex-start;
-  background-color: white;
-  color: black;
-  padding: 10px;
-  border: none;
-  border-radius: 5px;
-  font-weight: 600;
-  
-}
